@@ -626,7 +626,6 @@ class Data {
 		var rules = try getFields(tinf,false) catch( e : Dynamic ) Context.error(Std.string(e), t.pos);
 		var signature = Context.signature(rules) + getString(sheet) + subField;
 		var bytes = getODSCache(file, efile.pos, type, signature, parseRules.bind(rules, subField, file, sheet) );
-		//trace("butes" + haxe.Unserializer.run(bytes.toString()));
 		
 		var isNeko = Context.defined("neko");
 		var res = isNeko ? type : #if haxe3 haxe.crypto.Md5.encode #else haxe.Md5.encode #end(file + "@" + type);
@@ -659,17 +658,6 @@ class Data {
 		e = mk(ECall(mk(EField(mk(#if haxe3 EField #else EType #end(mk(EConst(CIdent("ods"))),"Data")),"extract")), args));
 		var pack = type.split(".");
 		var ct = TPath( { pack : pack, name : pack.pop(), params : [], sub : null } );
-		
-	//new Map<String,{ file : String, h : Map<String,{ sign : String, bytes : haxe.io.Bytes }> }>();
-		//for(k in cachedDB.keys()) {
-			//var a = cachedDB.get(k);
-			//for(q in a.h.keys()) {
-				//var b = a.h.get(q);
-				//trace(q + " : " + b);
-				//if(b.bytes.toString().indexOf("@")==-1)
-					//trace(haxe.Unserializer.run(b.bytes.toString()));
-			//}
-		//}
 		
 		ct = TPath( { pack : [], name : "Array", params : [TPType(ct)], sub : null } );
 		return mk(EBlock([
