@@ -44,6 +44,7 @@
     <hidden path="test.cache" />
     <hidden path="example.swf" />
     <hidden path="README.md" />
+    <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
   <preBuildCommand />
@@ -53,6 +54,7 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Default" />
+    <option testMovieCommand="" />
   </options>
   <!-- Plugin storage -->
   <storage />

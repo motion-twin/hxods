@@ -580,7 +580,6 @@ class Data {
 	 * Parse text to translate in the ODS file,
 	 * and write a fake hx file to be parsed by xgettext
 	 *
-	 *
 	 * @param	params
 	 */
 	static var CONTENT :String = null;
@@ -608,7 +607,6 @@ class Data {
 		for( s in bytes.toString().split("@")) {
 			CONTENT += "t._(\""+s+"\");\n";
 		}
-		//trace("write "+content);
 		sys.io.File.saveContent("src/OdsTexts.hx", CONTENT);
 		
 		return params[0];
