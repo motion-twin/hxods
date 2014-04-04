@@ -100,7 +100,7 @@ class OdsChecker {
 	}
 
 	public function getSheets() {
-		return Lambda.array( { iterator : sheets.keys } );
+		return Lambda.array( { iterator : function() return sheets.keys() } );
 	}
 
 	public function check( sheet : String, doc : Document ) {
